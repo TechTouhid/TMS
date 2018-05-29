@@ -20,7 +20,7 @@ def login_view(request, *args, **kwargs):
         username_ = form.cleaned_data.get('username')
         user_obj = User.objects.get(username__iexact=username_)
         login(request, user_obj)
-        return HttpResponseRedirect("/admin")
+        return HttpResponseRedirect("/")
     return render(request, "accounts/login.html", {"form": form})
 
 

@@ -16,7 +16,17 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from tmsapp.views import home
+from accounts.views import register, login_view, user_logout
+from tmsapp.views import about, ActivityListView, ActivityCreateView, TaskCreateView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
+    url(r'^register/$', register),
+    url(r'^login/$', login_view),
+    url(r'^logout/$', user_logout),
+    url(r'^about/$', about),
+    url(r'^activity/$', ActivityListView.as_view(), name='activity_list_view'),
+    url(r'^activity/create/$', ActivityCreateView.as_view(), name='activity_create_view'),
+    url(r'^task/create/$', TaskCreateView.as_view(), name='task_create_view'),
+
 ]
