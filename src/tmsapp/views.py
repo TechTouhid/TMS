@@ -61,7 +61,17 @@ class TaskCreateView(SuccessMessageMixin, CreateView):
     template_name = 'task_create.html'
     # fields = ['title', 'description']
     form_class = TaskForm
-    success_message = "%(title)s has been created"
+    # success_message = "%(title)s has been created"
 
     def get_success_url(self):
         return reverse('task_create_view')
+
+
+class TaskListView(ListView):
+    model = Task
+    template_name = 'task_list.html'
+
+    def get_queryset(self, *args, **kwargs):
+        qs = super(TaskListView, self).get_queryset(*args, **kwargs)
+        print(qs)
+        return qs
