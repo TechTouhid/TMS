@@ -17,7 +17,8 @@ from django.conf.urls import url
 from django.contrib import admin
 from tmsapp.views import home
 from accounts.views import register, login_view, user_logout
-from tmsapp.views import about, ActivityListView, ActivityCreateView, TaskCreateView, TaskListView
+from tmsapp.views import about, ActivityListView, ActivityCreateView, \
+    TaskCreateView, TaskListView, AssignmentListView, AssignmentCreateView
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', home),
@@ -29,5 +30,7 @@ urlpatterns = [
     url(r'^activity/create/$', ActivityCreateView.as_view(), name='activity_create_view'),
     url(r'^task/create/$', TaskCreateView.as_view(), name='task_create_view'),
     url(r'^task/$', TaskListView.as_view(), name='task_list_view'),
+    url(r'^assignment/$', AssignmentListView, name='assignment_list_view'),
+    url(r'^assignment/create/$', AssignmentCreateView.as_view(), name='assignment_create_view'),
 
 ]

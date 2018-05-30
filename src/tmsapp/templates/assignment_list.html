@@ -1,0 +1,14 @@
+{% extends 'base.html'%}
+{% block content %}
+    <table class="table">
+        {% for object in task %}
+            <tr><td><a href="{{ object.get_absolute_url }}">{{ object }}</a></td></tr>
+        {% endfor %}
+    </table>
+
+    <table class="table">
+        {% for object in assignment %}
+            <tr><td><a href="{{ object.get_absolute_url }}">{{ object }}</a></td></tr>
+        {% endfor %}
+    </table>
+{% endblock  %}
